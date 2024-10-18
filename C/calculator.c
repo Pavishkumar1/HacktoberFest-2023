@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>  // For pow() function
 
 // Function prototypes for calculator operations
 void add();
@@ -10,7 +11,7 @@ void modulus();
 void power();
 void exitCalculator();
 
-// Function for printing the menu
+// Function to print the menu
 void printMenu() {
     printf("\n** Calculator Menu **\n");
     printf("1. Addition\n");
@@ -29,7 +30,7 @@ int main() {
     while (1) {
         // Display the menu
         printMenu();
-        printf("Enter your choice: ");
+        printf("Enter your choice (1-7): ");
         scanf("%d", &choice);
 
         // Perform the selected operation
@@ -41,7 +42,7 @@ int main() {
             case 5: modulus(); break;
             case 6: power(); break;
             case 7: exitCalculator(); break;
-            default: printf("Invalid choice! Please try again.\n");
+            default: printf("Invalid choice! Please enter a number between 1 and 7.\n");
         }
     }
 
@@ -53,7 +54,7 @@ void add() {
     double num1, num2;
     printf("Enter two numbers to add: ");
     scanf("%lf %lf", &num1, &num2);
-    printf("Result: %.2lf\n", num1 + num2);
+    printf("Result: %.2lf + %.2lf = %.2lf\n", num1, num2, num1 + num2);
 }
 
 // Function to subtract two numbers
@@ -61,7 +62,7 @@ void subtract() {
     double num1, num2;
     printf("Enter two numbers to subtract (num1 - num2): ");
     scanf("%lf %lf", &num1, &num2);
-    printf("Result: %.2lf\n", num1 - num2);
+    printf("Result: %.2lf - %.2lf = %.2lf\n", num1, num2, num1 - num2);
 }
 
 // Function to multiply two numbers
@@ -69,7 +70,7 @@ void multiply() {
     double num1, num2;
     printf("Enter two numbers to multiply: ");
     scanf("%lf %lf", &num1, &num2);
-    printf("Result: %.2lf\n", num1 * num2);
+    printf("Result: %.2lf * %.2lf = %.2lf\n", num1, num2, num1 * num2);
 }
 
 // Function to divide two numbers
@@ -80,7 +81,7 @@ void divide() {
     if (num2 == 0) {
         printf("Error: Division by zero is not allowed.\n");
     } else {
-        printf("Result: %.2lf\n", num1 / num2);
+        printf("Result: %.2lf / %.2lf = %.2lf\n", num1, num2, num1 / num2);
     }
 }
 
@@ -92,7 +93,7 @@ void modulus() {
     if (num2 == 0) {
         printf("Error: Division by zero is not allowed.\n");
     } else {
-        printf("Result: %d\n", num1 % num2);
+        printf("Result: %d %% %d = %d\n", num1, num2, num1 % num2);
     }
 }
 
@@ -101,7 +102,7 @@ void power() {
     double base, exp;
     printf("Enter base and exponent (base^exp): ");
     scanf("%lf %lf", &base, &exp);
-    printf("Result: %.2lf\n", pow(base, exp));
+    printf("Result: %.2lf ^ %.2lf = %.2lf\n", base, exp, pow(base, exp));
 }
 
 // Function to exit the calculator
